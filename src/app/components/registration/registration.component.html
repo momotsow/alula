@@ -1,1 +1,43 @@
-<p>registration works!</p>
+<div class="registration-container">
+  <div class="registration">
+    <h2>Registration</h2>
+    <form [formGroup]="registrationForm" (submit)="register()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" formControlName="firstName"  required>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" formControlName="lastName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" [(ngModel)]="user.email" formControlName="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="user.password" formControlName="password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword"  [(ngModel)]="user.confirmPassword" required>
+      </div>
+
+      <div class="form-buttons">
+
+        <button type="submit">Create</button>
+        <button type="button" (click)="cancel()">Cancel</button>
+      </div>
+       <!-- Display validation message for password mismatch -->
+      <div *ngIf="registrationForm.hasError('passwordMismatch')" class="text-danger">
+        Passwords do not match.
+      </div>
+    </form>
+    <div class="registration-message" *ngIf="registrationMessage">{{ registrationMessage }}</div>
+  </div>
+</div>
+

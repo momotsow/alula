@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="login">
+    <h2>Login</h2>
+    <form (submit)="login()">
+      <div class="form-group">
+        <label for="username">Username(Email)</label>
+        <input type="text" id="username" name="username" [(ngModel)]="credentials.email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required>
+      </div>
+
+      <div class="form-buttons">
+
+        <button type="submit" class="login-btn">Log In</button>
+        <button type="button" (click)="goToRegistration()">Registration</button>
+      </div>
+    </form>
+    <div class="login-message" *ngIf="loginMessage">{{ loginMessage }}</div>
+  </div>
+</div>
+
