@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./personal-details.component.css'],
 })
 export class PersonalDetailsComponent implements OnInit {
-  personalDetailsForm!: FormGroup; // Add the definite assignment modifier
-  userData: any; // Assuming you have a service to retrieve user data
+  personalDetailsForm!: FormGroup;
+  userData: any;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
 
